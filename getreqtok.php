@@ -12,7 +12,7 @@ if (! empty($retarr)) {
   list($info, $headers, $body, $body_parsed) = $retarr;
   if ($info['http_code'] == 200 && !empty($body)) {
     print "\nHave user surf to\n" .
-        "http://api.twitter.com/oauth/authorize?" .
+        OAUTH_AUTHORIZE_REQUEST_TOKEN_URL . '?' .
         rfc3986_decode($body) . "\n";
   }
 }
@@ -34,7 +34,7 @@ function get_request_token($consumer_key, $consumer_secret, $callback, $usePost=
   $retarr = array();  // return value
   $response = array();
 
-  $url = 'http://api.twitter.com/oauth/request_token';
+  $url = OAUTH_GET_REQUEST_TOKEN_URL;
   $params['oauth_version'] = '1.0';
   $params['oauth_nonce'] = mt_rand();
   $params['oauth_timestamp'] = time();

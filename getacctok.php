@@ -37,7 +37,7 @@ function get_access_token($consumer_key, $consumer_secret, $request_token, $requ
   $retarr = array();  // return value
   $response = array();
 
-  $url = 'http://api.twitter.com/oauth/access_token';
+  $url = OAUTH_GET_ACCESS_TOKEN_URL;
   $params['oauth_version'] = '1.0';
   $params['oauth_nonce'] = mt_rand();
   $params['oauth_timestamp'] = time();
@@ -60,7 +60,7 @@ function get_access_token($consumer_key, $consumer_secret, $request_token, $requ
   // Pass OAuth credentials in a separate header or in the query string
   if ($passOAuthInHeader) {
     $query_parameter_string = oauth_http_build_query($params, true);
-    $header = build_oauth_header($params, "Twitter API");
+    $header = build_oauth_header($params, OAUTH_REALM);
     $headers[] = $header;
   } else {
     $query_parameter_string = oauth_http_build_query($params);

@@ -3,16 +3,20 @@
  * Globals and utilities for OAuth Examaples package
  */
 
-// Fill in the next two constants
-define('OAUTH_CONSUMER_KEY', 'XaWgJdTYPatqCXfkeAvRT');
-define('OAUTH_CONSUMER_SECRET', 'sfkljwerWDFS2fxSFrqsadfdaf43EREx2SafFADddw');
+// Fill in the following constants
+define('OAUTH_CONSUMER_KEY', 'some_consumer_key');
+define('OAUTH_CONSUMER_SECRET', 'some_consumer_key');
+define('OAUTH_GET_REQUEST_TOKEN_URL', 'the_get_request_token_url');
+define('OAUTH_AUTHORIZE_REQUEST_TOKEN_URL', 'the_authorize_request_token_url');
+define('OAUTH_GET_ACCESS_TOKEN_URL', 'the_get_access_token_url');
+define('OAUTH_REALM', 'optional_realm');
 
 $progname = $argv[0];
-$debug = 0; // Set to 1 for verbose debugging output
+$debug = 1; // Set to 1 for verbose debugging output
 
 function logit($msg,$preamble=true)
 {
-  //  date_default_timezone_set('America/Los_Angeles');
+   date_default_timezone_set('America/Los_Angeles');
   $now = date(DateTime::ISO8601, time());
   error_log(($preamble ? "+++${now}:" : '') . $msg);
 }
